@@ -28,6 +28,7 @@ export function renderCountries(flag = 'Not found', name = 'Not found', populati
     })
     
     countrieFlag.src = `${flag}`
+    countrieFlag.alt = `Flag of the country ${name}`
     countrieName.textContent = `${name}`
     countrieName.dataset.name = `${name}`
     countriePopulationInfoTitle.textContent = `Population:`
