@@ -34,7 +34,7 @@
 
 |||
 | :----- | :----- |
-| Solution URL: | [Frontend Mentor - Rest Countries API]() |
+| Solution URL: | [Frontend Mentor - Rest Countries API](https://www.frontendmentor.io/solutions/rest-countries-api-jeDXelYeUK) |
 | Live Site URL: | <a target href="https://jvssvj.github.io/Rest-Countries-API/" target="_blank">Rest Countries API</a>
 |||
 
