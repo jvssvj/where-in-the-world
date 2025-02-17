@@ -29,8 +29,11 @@ function changeTheme() {
 
         $btnChangeMode.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode'
 
-        const suffix = isDarkMode ? '' : '-outline'
-        $searchCountries.style.backgroundImage = `url(/images/search-circle${suffix}.svg)`
+        if(isDarkMode) {
+            $searchCountries.style.backgroundImage = `url('/images/search-circle.svg')`
+        } else {
+            $searchCountries.style.backgroundImage = `url('/images/search-circle-outline.svg')`
+        }
 
         $lightArrow.classList.toggle('visible', !isDarkMode)
         $lightArrow.classList.toggle('hidden', isDarkMode)
