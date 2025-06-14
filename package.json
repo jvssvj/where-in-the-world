@@ -1,0 +1,24 @@
+{
+  "name": "rest-countries-api",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">\r   <img src=\"https://www.frontendmentor.io/static/images/logo-mobile.svg\" alt=\"frontendmentor\" width=\"80\">\r   <h1>Frontend Mentor - Rest Countries API</h1>\r   <a href=\"https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca\"><strong>Frontend Mentor Challenge</strong></a>\r </div>",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jvssvj/Rest-Countries-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jvssvj/Rest-Countries-API/issues"
+  },
+  "homepage": "https://github.com/jvssvj/Rest-Countries-API#readme",
+  "dependencies": {
+    "typescript": "^5.8.2"
+  }
+}
