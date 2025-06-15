@@ -8,7 +8,7 @@ export function renderDetailsCountry(
     topLevelDomain: string,
     currencies: string,
     languages: string,
-    borders = undefined) {
+    borders: string[] | undefined) {
     const countrieContainer = document.createElement('div')
     const countrieFlagContainer = document.createElement('div')
     const countrieButtonsNavContainer = document.createElement('div')

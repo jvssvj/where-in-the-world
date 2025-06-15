@@ -16,13 +16,7 @@ export function countryClicked() {
             const countryName = $countrieDiv?.dataset.name
 
             if (countryName) {
-                console.log(`País clicado: ${countryName}`)
                 const data = await getCountries(`name/${countryName}`)
-                const country = data.find((country: CountryInterface) => country.name.common === countryName)
-
-                if (country) {
-                    console.log(country)
-                }
 
                 if (data && data.length > 0) {
                     countryClickedRender(data, countryName)
@@ -33,45 +27,43 @@ export function countryClicked() {
 }
 
 export function countryClickedRender(data: CountryInterface[], countryName: string) {
-    const countrie = data.find((countrie: CountryInterface) => countrie.name.common === countryName)
+    const country = data.find((countrie: CountryInterface) => countrie.name.common === countryName)
 
-    if (countrie) {
-        const countrieFlag = countrie.flags.svg
-        const countrieName = countrie.name.common
-        const countrieNativeName = countrie.name.official
-        const countriePopulation = countrie.population.toLocaleString('en-US')
-        const countrieRegion = countrie.region
-        const countrieSubRegion = countrie.subregion
-        const countrieCapital = countrie.capital
-        const countrieTopLevelDomain = countrie.tld
+    if (country) {
+        const countrieFlag = country.flags.svg
+        const countrieName = country.name.common
+        const countrieNativeName = country.name.official
+        const countriePopulation = country.population.toLocaleString('en-US')
+        const countrieRegion = country.region
+        const countrieSubRegion = country.subregion
+        const countrieCapital = country.capital
+        const countrieTopLevelDomain = country.tld
         const countrieCurrencies = () => {
-            const currencies = countrie.currencies
+            const currencies = country.currencies
             for (const type in currencies) {
                 const name = currencies[type].name
                 return name
             }
         }
         const countrieLanguages = () => {
-            const languages = countrie.languages
+            const languages = country.languages
             const languageValues = Object.values(languages)
             return languageValues.join(', ')
         }
-        const countrieBorders = () => {
+        const countrieBorders = (): string[] => {
+            const countryBorders = country.borders
             const allCountries = getAllCountries()
-            const countryBorders = countrie.borders
             let countryBordersFound: string[] = []
 
             if (countryBorders) {
                 countryBorders.forEach((borderCode) => {
-                    const borderCountry = allCountries.find(c => c.cca3 == borderCode)
-                    if (borderCountry) {
-                        countryBordersFound.push(borderCountry.name.common)
+                    const countries = allCountries.find(c => c.cca3 === borderCode)
+                    if (countries) {
+                        countryBordersFound.push(countries.name.common)
                     }
                 })
-
-                console.log('Bordas:', countryBordersFound)
-                return countryBordersFound
             }
+            return countryBordersFound
         }
 
         showOverview()
@@ -91,7 +83,5 @@ export function countryClickedRender(data: CountryInterface[], countryName: stri
         )
 
         currentCountry()
-
     }
 }
-

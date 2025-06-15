@@ -1,4 +1,4 @@
-export function renderDetailsCountry(flag, name, nativeName, population, region, subRegion, capital, topLevelDomain, currencies, languages, borders = undefined) {
+export function renderDetailsCountry(flag, name, nativeName, population, region, subRegion, capital, topLevelDomain, currencies, languages, borders) {
     const countrieContainer = document.createElement('div');
     const countrieFlagContainer = document.createElement('div');
     const countrieButtonsNavContainer = document.createElement('div');
