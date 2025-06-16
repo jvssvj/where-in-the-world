@@ -12,7 +12,7 @@ export function searchCountry() {
         if ($searchField.value !== '') {
             $countriesContainer.innerHTML = ''
             const data = await getCountries(`name/${$searchField.value}`)
-            console.log(data)
+
             data.slice(0, 8).forEach((country: CountryInterface) => {
                 const flag = country.flags.svg
                 const name = country.name.common
@@ -21,7 +21,7 @@ export function searchCountry() {
                 const capital = country.capital
 
                 renderCountries(flag, name, population, region, capital)
-                // countryClicked()
+                countryClicked()
             })
         }
     })
