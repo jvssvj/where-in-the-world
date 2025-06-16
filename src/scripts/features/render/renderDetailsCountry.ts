@@ -177,5 +177,7 @@ export function renderDetailsCountry(
 
     countrieContainer.append(countrieFlagContainer, countrieDetails)
 
-    document.querySelector('#overview__countrie').append(countrieContainer)
+    const $container = document.querySelector('#overview__countrie')
+    $container.innerHTML = ''
+    $container.append(countrieContainer)
 }

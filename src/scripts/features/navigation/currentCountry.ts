@@ -1,71 +1,82 @@
 import { hideOverview } from "../interactions/hideOverview.js"
-import { countryClickedRender } from "./countryClicked.js"
-const allCountries = [] //await getCountries()
-
-let countryClicked = []
+import { countryClickedRender } from "../render/countryClickedRender.js"
+let countriesClicked: string[] = []
 let currentIndex = -1
-// getCountryClicked()
 
-// function getCountryClicked() {
-//     const container = document.querySelector('#overview__countrie')
-//     let isClickListenerAttached = false
+export function countryClicked() {
+    const countrieLinks = document.querySelectorAll<HTMLAnchorElement>('.countrie__link')
 
-//     if (container && !isClickListenerAttached) {
-//         isClickListenerAttached = true
+    countrieLinks.forEach((link) => {
+        link.addEventListener('click', async (ev: MouseEvent) => {
+            ev.preventDefault()
 
-//         container.addEventListener('click', (ev) => {
-//             const target = ev.target as HTMLElement
-//             const clickedLink = target.closest('.countrie__border__links__link') as HTMLAnchorElement | null
+            const $countrieDiv = link.closest('.countrie') as HTMLElement | null
+            const countryName = $countrieDiv?.dataset.name
 
-//             if (clickedLink) {
-//                 ev.preventDefault()
-//                 const countryName = clickedLink.textContent.trim()
-//                 countryClicked.push(countryName)
-//                 currentIndex = countryClicked.length - 1
+            if (!countryName) return
 
-//                 countryClickedRender(allCountries, countryName)
-//                 updateNextButtonVisibility()
-//             }
-//         })
-//     }
-// }
+            if (countriesClicked.length === 0) {
+                countriesClicked.push(countryName)
+            }
+
+            countryClickedRender(countryName)
+        })
+    })
+}
+
+
+function getBorderCountryClicked() {
+    const clickedLink = document.querySelectorAll('.countrie__border__links__link')
+    clickedLink.forEach(link => {
+        link.addEventListener('click', (ev) => {
+            ev.preventDefault()
+            const countryName = link.textContent.trim()
+            countriesClicked.push(countryName)
+            currentIndex = countriesClicked.length - 1
+
+            countryClickedRender(countryName)
+            updateNextButtonVisibility()
+        })
+    })
+}
 
 function backCountry() {
     const $buttonBack = document.querySelector('.button__back__overview') as HTMLButtonElement
 
     $buttonBack.addEventListener('click', () => {
-        hideOverview()
-        console.clear()
-        // if (currentIndex > 0) {
-        //     currentIndex--
-        //     const countryName = countryClicked[currentIndex]
-        //     countryClickedRender(allCountries, countryName)
-        //     updateNextButtonVisibility()
-        // } else {
-        //     countryClicked = []
-        //     hideOverview()
-        // }
+
+        if (currentIndex > 0) {
+            currentIndex--
+            const countryName = countriesClicked[currentIndex]
+            countryClickedRender(countryName)
+            updateNextButtonVisibility()
+        } else {
+            countriesClicked = []
+            hideOverview()
+        }
     })
 }
 
 function nextCountry() {
     const $buttonNext = document.querySelector('.button__next__overview') as HTMLButtonElement
-    $buttonNext.classList.add('hidden')
-
     $buttonNext.addEventListener('click', () => {
-        if (currentIndex < countryClicked.length - 1) {
+
+        if (currentIndex < countriesClicked.length - 1) {
             currentIndex++
-            const nextCountry = countryClicked[currentIndex]
-            countryClickedRender(allCountries, nextCountry)
-            updateNextButtonVisibility()
+            const nextCountry = countriesClicked[currentIndex]
+            countryClickedRender(nextCountry)
         }
     })
+
+    updateNextButtonVisibility()
 }
 
 function updateNextButtonVisibility() {
     const $buttonNext = document.querySelector('.button__next__overview') as HTMLButtonElement
 
-    if (currentIndex >= countryClicked.length - 1) {
+    if (!$buttonNext) return
+
+    if (countriesClicked.length === 1 || currentIndex >= countriesClicked.length - 1) {
         $buttonNext.classList.add('hidden')
     } else {
         $buttonNext.classList.remove('hidden')
@@ -73,6 +84,7 @@ function updateNextButtonVisibility() {
 }
 
 export function currentCountry() {
+    getBorderCountryClicked()
     backCountry()
     nextCountry()
 }

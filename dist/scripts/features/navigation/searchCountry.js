@@ -1,6 +1,5 @@
 import { getCountries } from "../../api/getCountries.js";
 import { renderCountries } from "../render/renderCountries.js";
-import { countryClicked } from "./countryClicked.js";
 export function searchCountry() {
     const $searchField = document.querySelector('#search--countries');
     const $regions = document.querySelectorAll('.countries__nav__filter__filters__continent');
@@ -9,6 +8,7 @@ export function searchCountry() {
         if ($searchField.value !== '') {
             $countriesContainer.innerHTML = '';
             const data = await getCountries(`name/${$searchField.value}`);
+            console.log(data);
             data.slice(0, 8).forEach((country) => {
                 const flag = country.flags.svg;
                 const name = country.name.common;
@@ -16,7 +16,7 @@ export function searchCountry() {
                 const region = country.region;
                 const capital = country.capital;
                 renderCountries(flag, name, population, region, capital);
-                countryClicked();
+                // countryClicked()
             });
         }
     });

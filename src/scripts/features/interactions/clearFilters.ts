@@ -1,4 +1,5 @@
 import { getCountries } from "../../api/getCountries.js"
+import { showCountries } from "../render/showCountries.js"
 
 export function clearFilters() {
     const $countriesContainer = document.querySelector('#countries') as HTMLElement
@@ -21,7 +22,7 @@ export function clearFilters() {
         if ($searchField.value !== '') {
             getCountries(`name/${$searchField.value}`)
         } else {
-            getCountries()
+            showCountries()
         }
     })
 }

@@ -1,6 +1,6 @@
 import { CountryInterface } from "../../interfaces/countryInterface.js"
 import { renderCountries } from "../render/renderCountries.js"
-import { countryClicked } from "./countryClicked.js"
+import { countryClicked } from "./currentCountry.js"
 
 export function selectRegion(data: CountryInterface[], changeQuantityToShow: number) {
     const $filterModal = document.querySelector('.countries__nav__filter__filters') as HTMLDivElement

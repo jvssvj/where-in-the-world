@@ -136,5 +136,7 @@ export function renderDetailsCountry(flag, name, nativeName, population, region,
     countrieButtonsNavContainer.append(buttonBack, buttonNext);
     countrieFlagContainer.append(countrieButtonsNavContainer, countrieFlag);
     countrieContainer.append(countrieFlagContainer, countrieDetails);
-    document.querySelector('#overview__countrie').append(countrieContainer);
+    const $container = document.querySelector('#overview__countrie');
+    $container.innerHTML = '';
+    $container.append(countrieContainer);
 }
