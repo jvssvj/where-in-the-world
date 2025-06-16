@@ -1,4 +1,4 @@
-import { getCountries } from "../../api/getCountries.js"
+import { performCountrySearch } from "../navigation/searchCountry.js"
 import { showCountries } from "../render/showCountries.js"
 
 export function clearFilters() {
@@ -20,7 +20,7 @@ export function clearFilters() {
         $countriesContainer.innerHTML = ''
 
         if ($searchField.value !== '') {
-            getCountries(`name/${$searchField.value}`)
+            performCountrySearch()
         } else {
             showCountries()
         }

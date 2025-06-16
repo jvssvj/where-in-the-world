@@ -3,7 +3,7 @@ import { setAllCountries } from "../state/globalData.js"
 export async function getCountries(endpoint = 'all') {
     const hasFields = endpoint === 'all'
     const baseUrl = `https://restcountries.com/v3.1/${endpoint}`
-    const mainFields = 'flags,name,population,region,capital,cca3,borders'
+    const mainFields = 'flags,name,population,region,capital,cca3'
 
     const url = hasFields ? `${baseUrl}?fields=${mainFields}` : baseUrl
 

@@ -1,4 +1,4 @@
-import { getCountries } from "../../api/getCountries.js";
+import { performCountrySearch } from "../navigation/searchCountry.js";
 import { showCountries } from "../render/showCountries.js";
 export function clearFilters() {
     const $countriesContainer = document.querySelector('#countries');
@@ -15,7 +15,7 @@ export function clearFilters() {
         $filterModal.classList.toggle('close__filters__animation', true);
         $countriesContainer.innerHTML = '';
         if ($searchField.value !== '') {
-            getCountries(`name/${$searchField.value}`);
+            performCountrySearch();
         }
         else {
             showCountries();

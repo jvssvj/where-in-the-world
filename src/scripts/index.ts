@@ -2,10 +2,12 @@ import { clearFilters } from "./features/interactions/clearFilters.js"
 import { openAndCloseFilters } from "./features/interactions/openAndCloseFilters.js"
 import { changeTheme } from "./features/interactions/theme.js"
 import { searchCountry } from "./features/navigation/searchCountry.js"
+import { selectRegion } from "./features/navigation/selectRegion.js"
 import { showCountries } from "./features/render/showCountries.js"
 
 changeTheme()
 openAndCloseFilters()
 clearFilters()
 searchCountry()
+selectRegion()
 showCountries()
