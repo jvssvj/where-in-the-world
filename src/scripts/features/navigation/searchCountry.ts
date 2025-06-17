@@ -1,9 +1,8 @@
-import { getCountries } from "../../api/getCountries.js"
-import { CountryInterface } from "../../interfaces/countryInterface.js"
-import { getAllCountries } from "../../state/globalData.js"
-import { renderCountries } from "../render/renderCountries.js"
-import { showCountries } from "../render/showCountries.js"
-import { countryClicked } from "./currentCountry.js"
+import { getCountries } from "../../api/getCountries"
+import { CountryInterface } from "../../interfaces/countryInterface"
+import { getAllCountries } from "../../state/globalData"
+import { renderCountries } from "../render/renderCountries"
+import { countryClicked } from "./currentCountry"
 
 export function searchCountry() {
     const $searchField = document.querySelector('#search--countries') as HTMLInputElement
@@ -42,7 +41,7 @@ export async function performCountrySearch() {
 }
 
 function getFilterActive() {
-    const $regions = Array.from(document.querySelectorAll<HTMLSpanElement>('.countries__nav__filter__filters__continent'))
+    const $regions = Array.from(document.querySelectorAll<HTMLSpanElement>('.nav__filter__filters__continent'))
 
     const activeRegion = $regions.find(region => region.classList.contains('active__filter'))
     const verify = activeRegion ? activeRegion.dataset.region : ''

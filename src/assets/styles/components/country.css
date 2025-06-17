@@ -1,0 +1,95 @@
+@import url('../utils/variables.css');
+
+#countries {
+    width: 100%;
+    max-width: 1770px;
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0em 4.6875rem;
+    gap: 4.6875rem;
+}
+
+.country {
+    width: 100%;
+    max-width: 265px;
+    background-color: var(--Background--Color--Divs);
+    border-radius: .3rem;
+    overflow: hidden;
+    box-shadow: var(--Shadow);
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    cursor: pointer;
+    transition: .2s ease;
+    position: relative;
+}
+
+.country__link {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+.country__flag {
+    width: 100%;
+    height: 161px;
+    object-fit: cover;
+    box-shadow: var(--Shadow);
+}
+
+.country__name,
+.country__name__overview {
+    font-size: var(--Font20px);
+    width: 100%;
+    color: var(--Color--Text--Bold);
+    font-weight: 800;
+}
+
+.country__infos {
+    width: 100%;
+    padding: 1rem 1.5625em 2.875rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: .25rem;
+}
+
+.country__infos__population {
+    margin-top: .563rem;
+}
+
+.country__infos__info__title,
+.country__infos__info__title__overview,
+.country__border__title__overview {
+    display: flex;
+    gap: .3rem;
+    font-size: var(--Font16pxpx);
+    color: var(--Color--Text--Bold);
+    font-weight: 600;
+}
+
+.country__infos__info__data,
+.country__infos__info__data__overview,
+.country__border__links__link {
+    color: var(--Color--Text--Normal);
+    font-weight: 400;
+}
+
+@media (max-width: 1094px) {
+    #countries {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 755px) {
+    #countries {
+        padding: 0rem 1rem;
+    }
+
+    .country {
+        max-width: 530px;
+    }
+}

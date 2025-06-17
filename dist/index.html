@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./scripts/app.js" defer></script>
+    <title>Rest Countries API</title>
+</head>
+
+<body>
+    <header class="header">
+        <section class="header__content">
+            <h1 class="header__content__t"><a href="index.html">Where in the world?</a></h1>
+
+            <div class="header__content__switch__theme">
+                <img class="header__content__switch__theme__icon moon--light-mode" src="./images/moon.svg" alt="">
+                <img class="header__content__switch__theme__icon moon--dark-mode" src="./images/moon-outline.svg"
+                    alt="">
+                <button id="dark--mode--btn" class="header__content__switch__theme__btn">Dark Mode</button>
+            </div>
+        </section>
+    </header>
+
+    <div id="country__overview"></div>
+
+    <nav class="nav">
+
+        <div class="nav__search">
+            <label for="search--countries">Search Countries</label>
+            <input type="text" name="search--countries" id="search--countries" placeholder="Search for a country...">
+        </div>
+
+        <div class="nav__filter">
+            <div class="nav__filter__btn">
+                <button id="filter--btn">Filter by Region</button>
+
+                <div class="nav__filter__btn__arrows">
+                    <img class="nav__filter__arrow filter--arrow--light-mode"
+                        src="./images/chevron-up-circle-outline.svg" alt="">
+
+                    <img class="nav__filter__arrow filter--arrow--dark-mode" src="./images/chevron-up-circle-sharp.svg"
+                        alt="">
+                </div>
+            </div>
+
+            <div class="nav__filter__filters">
+                <span class="nav__filter__filters__continent" data-region="Africa">Africa</span>
+                <span class="nav__filter__filters__continent" data-region="Americas">America</span>
+                <span class="nav__filter__filters__continent" data-region="Asia">Asia</span>
+                <span class="nav__filter__filters__continent" data-region="Europe">Europe</span>
+                <span class="nav__filter__filters__continent" data-region="Oceania">Oceania</span>
+
+                <span class="clear__filter">Clear Filter</span>
+            </div>
+        </div>
+    </nav>
+
+    <main id="countries"></main>
+    <span id="message"></span>
+
+    <footer class="attribution">
+        <p>Challenge by <a href="https://www.frontendmentor.io/profile/jvssvj" target="_blank">Frontend Mentor</a>.
+            Coded by <a href="https://www.linkedin.com/in/jo%C3%A3o-vitor-62b518263/" target="_blank">João Vitor</a></p>
+    </footer>
+</body>
+
+</html>

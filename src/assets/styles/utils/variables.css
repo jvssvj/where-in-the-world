@@ -1,0 +1,21 @@
+:root {
+    --Background--Color--Body: hsl(0, 0%, 98%);
+    --Background--Color--Divs: hsl(0, 0%, 100%);
+    --Color--Text--Bold: hsl(200, 15%, 8%);
+    --Color--Text--Normal: hsl(0, 0%, 52%);
+    --Shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    --Font24px: 1.5rem;
+    --Font20px: 1.25rem;
+    --Font16px: 1rem;
+    --Font14px: .875em
+}
+
+body.dark-mode {
+    --Background--Color--Body: hsl(207, 26%, 17%);
+    --Background--Color--Divs: hsl(209, 23%, 22%);
+    --Color--Text--Bold: hsl(0, 0%, 100%);
+    --Color--Text--Normal: hsl(0, 0%, 65%);
+    --Shadow: rgba(0, 0, 0, 0.200) 0px 5px 15px;
+    transition: .5s ease;
+}

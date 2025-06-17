@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('../utils/reset.css');
+@import url('../utils/variables.css');
+
+* {
+    font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    background-color: var(--Background--Color--Body);
+    font-size: var(--Font16px);
+    transition: .5s ease;
+}
+
+@import url('../components/header.css');
+@import url('../components/nav.css');
+@import url('../components/country.css');
+
+@import url('./overviewCountry.css');
+@import url('../utils/animations.css');
+@import url('../state/state.css');
+
+
+.attribution {
+    text-align: center;
+    margin-top: 4em;
+    font-size: var(--Font14px);
+    padding: .5rem;
+    color: var(--Color--Text--Bold);
+    font-weight: 600;
+}
+
+.attribution a {
+    font-weight: 900;
+    color: var(--Color--Text--Bold);
+}
+
+#message {
+    font-weight: 600;
+    font-size: var(--Font20px);
+    color: var(--Color--Text--Bold);
+}

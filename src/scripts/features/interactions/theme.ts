@@ -1,5 +1,5 @@
 export function changeTheme() {
-    const $btnChangeModeContainer = document.querySelector('.countries__header__content__switch__theme')
+    const $btnChangeModeContainer = document.querySelector('.header__content__switch__theme')
     const $btnChangeMode = document.querySelector('#dark--mode--btn')
     const $moonInDarkMode = document.querySelector('.moon--dark-mode')
     const $moonInLightMode = document.querySelector('.moon--light-mode')
@@ -28,9 +28,9 @@ export function changeTheme() {
         $btnChangeMode.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode'
 
         if (isDarkMode) {
-            $searchCountries.style.backgroundImage = `url('/images/search-circle.svg')`
+            $searchCountries.style.backgroundImage = `url('./images/search-circle.svg')`
         } else {
-            $searchCountries.style.backgroundImage = `url('/images/search-circle-outline.svg')`
+            $searchCountries.style.backgroundImage = `url('./images/search-circle-outline.svg')`
         }
 
         $lightArrow.classList.toggle('visible', !isDarkMode)

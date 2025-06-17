@@ -1,0 +1,142 @@
+@import url('../utils/variables.css');
+
+#country__overview {
+    display: none;
+    align-items: start;
+    justify-content: center;
+    position: fixed;
+    top: 80px;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Background--Color--Divs);
+    transition: .5s ease;
+    overflow: scroll;
+}
+
+.country__overview {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    gap: 2em;
+    padding: 0em 2rem 6em;
+}
+
+.country__btn__nav__overview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4em 0em;
+}
+
+.button__back__overview,
+.button__next__overview {
+    width: 139px;
+    height: 43px;
+    border-radius: .3rem;
+    background-color: var(--Background--Color--Divs);
+    box-shadow: var(--Shadow);
+    cursor: pointer;
+    transition: 0.2s ease;
+    color: var(--Color--Text--Bold);
+}
+
+.button__back__overview:active,
+.button__next__overview:active {
+    transform: scale(0.92);
+}
+
+.country__flag__overview {
+    min-width: 560px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: .2rem;
+    box-shadow: var(--Shadow);
+}
+
+.country__details__overview {
+    display: flex;
+    flex-direction: column;
+}
+
+.country__name__overview {
+    font-size: var(--Font24px);
+}
+
+.country__infos__overview {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0em 5rem;
+}
+
+.country__infos__overview__column1,
+.country__infos__overview__column2 {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.country__infos__info__title__overview {
+    flex-wrap: wrap;
+}
+
+.country__border__overview,
+.country__border__links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.country__border__links__link {
+    background-color: var(--Background--Color--Body);
+    box-shadow: var(--Shadow);
+    padding: 0em 1.5rem;
+    height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s ease;
+    border-radius: .2rem;
+    border: 1px solid hsla(0, 0%, 0%, 0.055);
+}
+
+.country__border__links__link:active {
+    transform: scale(0.92);
+}
+
+/* overviewCountryResponsive */
+@media (max-width: 1094px) {
+    .country__overview {
+        margin: 0;
+        flex-direction: column;
+        max-width: 760px;
+        align-items: center;
+    }
+
+    .country__flag__btn__overview {
+        width: 100%;
+    }
+
+    .country__btn__nav__overview {
+        margin: 2em 0em 4em;
+    }
+
+    .country__flag__overview {
+        width: 100%;
+        height: unset;
+        object-fit: contain;
+    }
+
+    .country__details__overview {
+        width: 100%;
+    }
+
+    .country__infos__overview {
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,62 @@
+.open__filters__animation {
+    animation: openFilters .2s ease forwards;
+    visibility: visible;
+}
+
+.close__filters__animation {
+    animation: closeFilters .2s ease forwards;
+}
+
+@keyframes openFilters {
+    0% {
+        transform: translateY(-80px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes closeFilters {
+    0% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-80px);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.rotate__arrow {
+    animation: arrowRotate .2s ease forwards;
+}
+
+.original__arrow {
+    animation: arrowOriginalPosition .2s ease forwards;
+}
+
+
+@keyframes arrowRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes arrowOriginalPosition {
+    0% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}

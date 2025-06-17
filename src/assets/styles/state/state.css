@@ -1,0 +1,30 @@
+/* In JS START */
+#country__overview.enable__overview {
+    display: flex;
+}
+
+.nav__filter.hidden,
+#countries.hidden,
+.hidden {
+    display: none;
+}
+
+#country__overview.visible,
+.moon--dark-mode.visible,
+.filter--arrow--dark-mode.visible,
+.visible {
+    display: flex;
+}
+
+#filter--btn.active__filter,
+.nav__filter__filters__continent.active__filter,
+.active__filter {
+    font-weight: 900;
+}
+
+/* In JS END */
+
+.moon--dark-mode,
+.filter--arrow--dark-mode {
+    display: none;
+}

@@ -1,12 +1,12 @@
-import { performCountrySearch } from "../navigation/searchCountry.js"
-import { showCountries } from "../render/showCountries.js"
+import { performCountrySearch } from "../navigation/searchCountry"
+import { showCountries } from "../render/showCountries"
 
 export function clearFilters() {
     const $countriesContainer = document.querySelector('#countries') as HTMLElement
     const $clearBtn = document.querySelector<HTMLSpanElement>('.clear__filter')
-    const $regions = document.querySelectorAll<HTMLSpanElement>('.countries__nav__filter__filters__continent')
+    const $regions = document.querySelectorAll<HTMLSpanElement>('.nav__filter__filters__continent')
     const $filterBtn = document.querySelector<HTMLButtonElement>('#filter--btn')
-    const $filterModal = document.querySelector<HTMLDivElement>('.countries__nav__filter__filters')
+    const $filterModal = document.querySelector<HTMLDivElement>('.nav__filter__filters')
     const $searchField = document.querySelector('#search--countries') as HTMLInputElement
 
     $clearBtn.addEventListener('click', () => {

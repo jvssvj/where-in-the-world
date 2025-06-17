@@ -1,7 +1,7 @@
 export function openAndCloseFilters() {
-    const $btnFilter = document.querySelector('.countries__nav__filter__btn')
-    const $btnFilterArrows = document.querySelectorAll('.countries__nav__filter__arrow')
-    const $filterModal = document.querySelector('.countries__nav__filter__filters')
+    const $btnFilter = document.querySelector('.nav__filter__btn')
+    const $btnFilterArrows = document.querySelectorAll('.nav__filter__arrow')
+    const $filterModal = document.querySelector('.nav__filter__filters')
 
     $filterModal.classList.add('close__filters__animation')
     $btnFilter.addEventListener('click', () => {

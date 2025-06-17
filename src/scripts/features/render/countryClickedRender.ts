@@ -1,8 +1,8 @@
-import { getCountries } from "../../api/getCountries.js"
-import { getAllCountries } from "../../state/globalData.js"
-import { showOverview } from "../interactions/showOverview.js"
-import { currentCountry } from "../navigation/currentCountry.js"
-import { renderDetailsCountry } from "./renderDetailsCountry.js"
+import { getCountries } from "../../api/getCountries"
+import { getAllCountries } from "../../state/globalData"
+import { showOverview } from "../interactions/showOverview"
+import { currentCountry } from "../navigation/currentCountry"
+import { renderDetailsCountry } from "./renderDetailsCountry"
 
 export async function countryClickedRender(countryName: string) {
     const data = await getCountries(`name/${countryName}`)

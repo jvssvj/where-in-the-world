@@ -1,4 +1,4 @@
-import { CountryInterface } from "../interfaces/countryInterface.js"
+import { CountryInterface } from "../interfaces/countryInterface"
 
 export let allCountries: CountryInterface[] = []
 

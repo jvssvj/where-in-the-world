@@ -1,0 +1,773 @@
+/*!*************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/pages/index.css ***!
+  \*************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap);
+/*!*****************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/utils/variables.css ***!
+  \*****************************************************************************************/
+:root {
+    --Background--Color--Body: hsl(0, 0%, 98%);
+    --Background--Color--Divs: hsl(0, 0%, 100%);
+    --Color--Text--Bold: hsl(200, 15%, 8%);
+    --Color--Text--Normal: hsl(0, 0%, 52%);
+    --Shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    --Font24px: 1.5rem;
+    --Font20px: 1.25rem;
+    --Font16px: 1rem;
+    --Font14px: .875em
+}
+
+body.dark-mode {
+    --Background--Color--Body: hsl(207, 26%, 17%);
+    --Background--Color--Divs: hsl(209, 23%, 22%);
+    --Color--Text--Bold: hsl(0, 0%, 100%);
+    --Color--Text--Normal: hsl(0, 0%, 65%);
+    --Shadow: rgba(0, 0, 0, 0.200) 0px 5px 15px;
+    transition: .5s ease;
+}
+/*!********************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/components/country.css ***!
+  \********************************************************************************************/
+#countries {
+    width: 100%;
+    max-width: 1770px;
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0em 4.6875rem;
+    gap: 4.6875rem;
+}
+
+.country {
+    width: 100%;
+    max-width: 265px;
+    background-color: var(--Background--Color--Divs);
+    border-radius: .3rem;
+    overflow: hidden;
+    box-shadow: var(--Shadow);
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    cursor: pointer;
+    transition: .2s ease;
+    position: relative;
+}
+
+.country__link {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+.country__flag {
+    width: 100%;
+    height: 161px;
+    object-fit: cover;
+    box-shadow: var(--Shadow);
+}
+
+.country__name,
+.country__name__overview {
+    font-size: var(--Font20px);
+    width: 100%;
+    color: var(--Color--Text--Bold);
+    font-weight: 800;
+}
+
+.country__infos {
+    width: 100%;
+    padding: 1rem 1.5625em 2.875rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: .25rem;
+}
+
+.country__infos__population {
+    margin-top: .563rem;
+}
+
+.country__infos__info__title,
+.country__infos__info__title__overview,
+.country__border__title__overview {
+    display: flex;
+    gap: .3rem;
+    font-size: var(--Font16pxpx);
+    color: var(--Color--Text--Bold);
+    font-weight: 600;
+}
+
+.country__infos__info__data,
+.country__infos__info__data__overview,
+.country__border__links__link {
+    color: var(--Color--Text--Normal);
+    font-weight: 400;
+}
+
+@media (max-width: 1094px) {
+    #countries {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 755px) {
+    #countries {
+        padding: 0rem 1rem;
+    }
+
+    .country {
+        max-width: 530px;
+    }
+}
+/*!****************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/components/nav.css ***!
+  \****************************************************************************************/
+.nav {
+    width: 100%;
+    max-width: 1770px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0em 5rem;
+    margin: 3rem 0rem;
+    gap: 4.6875rem;
+}
+
+.nav__search {
+    width: 100%;
+}
+
+.nav__search>label {
+    display: none;
+}
+
+#search--countries {
+    width: 100%;
+    height: 55px;
+    max-width: 480px;
+    border-radius: .5rem;
+    box-shadow: var(--Shadow);
+    padding-left: 4rem;
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: 2rem center;
+    outline: none;
+    background-color: var(--Background--Color--Divs);
+    transition: .5s ease;
+    color: var(--Color--Text--Bold);
+}
+
+#search--countries::placeholder {
+    color: var(--Color--Text--Normal);
+}
+
+.nav__filter {
+    width: 100%;
+    max-width: 200px;
+    position: relative;
+}
+
+.nav__filter__btn {
+    width: 100%;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    box-shadow: var(--Shadow);
+    cursor: pointer;
+    transition: .2s ease;
+    background-color: var(--Background--Color--Divs);
+    position: relative;
+    z-index: 3;
+}
+
+#filter--btn {
+    background-color: transparent;
+    color: var(--Color--Text--Bold);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.nav__filter__btn:active {
+    transform: scale(0.92);
+}
+
+.nav__filter__btn__arrows {
+    display: flex;
+}
+
+.nav__filter__arrow {
+    width: 20px;
+}
+
+.nav__filter__filters {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: .35rem;
+    background-color: var(--Background--Color--Divs);
+    margin-top: .25em;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    box-shadow: var(--Shadow);
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    visibility: hidden;
+}
+
+.nav__filter__filters__continent,
+.clear__filter {
+    font-weight: 600;
+    cursor: pointer;
+    font-size: var(--Font14px);
+    transition: 0.2s ease;
+    color: var(--Color--Text--Bold);
+}
+
+.nav__filter__filters__continent:active,
+.clear__filter:active {
+    transform: scale(0.92);
+}
+
+.clear__filter {
+    margin-top: 1rem;
+}
+
+@media (max-width: 755px) {
+    .nav {
+        padding: 0rem 1rem;
+    }
+
+    .nav {
+        align-items: start;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+/*!*******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/components/header.css ***!
+  \*******************************************************************************************/
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--Background--Color--Divs);
+    box-shadow: var(--Shadow);
+    position: relative;
+    z-index: 5;
+}
+
+.header__content {
+    width: 100%;
+    height: 81px;
+    max-width: 1770px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0em 5rem;
+}
+
+.header__content__t {
+    font-size: var(--Font24px);
+}
+
+.header__content__t>a {
+    text-decoration: none;
+    color: var(--Color--Text--Bold);
+}
+
+.header__content__switch__theme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .7rem;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.header__content__switch__theme:active {
+    transform: scale(0.92);
+}
+
+.header__content__switch__theme__icon {
+    width: 20px;
+    cursor: pointer;
+}
+
+.header__content__switch__theme__btn {
+    font-weight: 600;
+    font-size: var(--Font16px);
+    color: var(--Color--Text--Bold);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+@media (max-width: 755px) {
+    .header__content__t {
+        font-size: var(--Font20px);
+    }
+
+    .header__content,
+    .nav,
+    #countries {
+        padding: 0rem 1rem;
+    }
+
+    .nav {
+        align-items: start;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+/*!*************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/utils/reset.css ***!
+  \*************************************************************************************/
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    text-rendering: optimizeSpeed;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+:focus {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+/*!*********************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/utils/variables.css (1) ***!
+  \*********************************************************************************************/
+:root {
+    --Background--Color--Body: hsl(0, 0%, 98%);
+    --Background--Color--Divs: hsl(0, 0%, 100%);
+    --Color--Text--Bold: hsl(200, 15%, 8%);
+    --Color--Text--Normal: hsl(0, 0%, 52%);
+    --Shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    --Font24px: 1.5rem;
+    --Font20px: 1.25rem;
+    --Font16px: 1rem;
+    --Font14px: .875em
+}
+
+body.dark-mode {
+    --Background--Color--Body: hsl(207, 26%, 17%);
+    --Background--Color--Divs: hsl(209, 23%, 22%);
+    --Color--Text--Bold: hsl(0, 0%, 100%);
+    --Color--Text--Normal: hsl(0, 0%, 65%);
+    --Shadow: rgba(0, 0, 0, 0.200) 0px 5px 15px;
+    transition: .5s ease;
+}
+/*!*********************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/utils/variables.css (2) ***!
+  \*********************************************************************************************/
+:root {
+    --Background--Color--Body: hsl(0, 0%, 98%);
+    --Background--Color--Divs: hsl(0, 0%, 100%);
+    --Color--Text--Bold: hsl(200, 15%, 8%);
+    --Color--Text--Normal: hsl(0, 0%, 52%);
+    --Shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    --Font24px: 1.5rem;
+    --Font20px: 1.25rem;
+    --Font16px: 1rem;
+    --Font14px: .875em
+}
+
+body.dark-mode {
+    --Background--Color--Body: hsl(207, 26%, 17%);
+    --Background--Color--Divs: hsl(209, 23%, 22%);
+    --Color--Text--Bold: hsl(0, 0%, 100%);
+    --Color--Text--Normal: hsl(0, 0%, 65%);
+    --Shadow: rgba(0, 0, 0, 0.200) 0px 5px 15px;
+    transition: .5s ease;
+}
+/*!*********************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/utils/variables.css (3) ***!
+  \*********************************************************************************************/
+:root {
+    --Background--Color--Body: hsl(0, 0%, 98%);
+    --Background--Color--Divs: hsl(0, 0%, 100%);
+    --Color--Text--Bold: hsl(200, 15%, 8%);
+    --Color--Text--Normal: hsl(0, 0%, 52%);
+    --Shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    --Font24px: 1.5rem;
+    --Font20px: 1.25rem;
+    --Font16px: 1rem;
+    --Font14px: .875em
+}
+
+body.dark-mode {
+    --Background--Color--Body: hsl(207, 26%, 17%);
+    --Background--Color--Divs: hsl(209, 23%, 22%);
+    --Color--Text--Bold: hsl(0, 0%, 100%);
+    --Color--Text--Normal: hsl(0, 0%, 65%);
+    --Shadow: rgba(0, 0, 0, 0.200) 0px 5px 15px;
+    transition: .5s ease;
+}
+/*!*********************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/utils/variables.css (4) ***!
+  \*********************************************************************************************/
+:root {
+    --Background--Color--Body: hsl(0, 0%, 98%);
+    --Background--Color--Divs: hsl(0, 0%, 100%);
+    --Color--Text--Bold: hsl(200, 15%, 8%);
+    --Color--Text--Normal: hsl(0, 0%, 52%);
+    --Shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    --Font24px: 1.5rem;
+    --Font20px: 1.25rem;
+    --Font16px: 1rem;
+    --Font14px: .875em
+}
+
+body.dark-mode {
+    --Background--Color--Body: hsl(207, 26%, 17%);
+    --Background--Color--Divs: hsl(209, 23%, 22%);
+    --Color--Text--Bold: hsl(0, 0%, 100%);
+    --Color--Text--Normal: hsl(0, 0%, 65%);
+    --Shadow: rgba(0, 0, 0, 0.200) 0px 5px 15px;
+    transition: .5s ease;
+}
+/*!***********************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/pages/overviewCountry.css ***!
+  \***********************************************************************************************/
+#country__overview {
+    display: none;
+    align-items: start;
+    justify-content: center;
+    position: fixed;
+    top: 80px;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Background--Color--Divs);
+    transition: .5s ease;
+    overflow: scroll;
+}
+
+.country__overview {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    gap: 2em;
+    padding: 0em 2rem 6em;
+}
+
+.country__btn__nav__overview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4em 0em;
+}
+
+.button__back__overview,
+.button__next__overview {
+    width: 139px;
+    height: 43px;
+    border-radius: .3rem;
+    background-color: var(--Background--Color--Divs);
+    box-shadow: var(--Shadow);
+    cursor: pointer;
+    transition: 0.2s ease;
+    color: var(--Color--Text--Bold);
+}
+
+.button__back__overview:active,
+.button__next__overview:active {
+    transform: scale(0.92);
+}
+
+.country__flag__overview {
+    min-width: 560px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: .2rem;
+    box-shadow: var(--Shadow);
+}
+
+.country__details__overview {
+    display: flex;
+    flex-direction: column;
+}
+
+.country__name__overview {
+    font-size: var(--Font24px);
+}
+
+.country__infos__overview {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0em 5rem;
+}
+
+.country__infos__overview__column1,
+.country__infos__overview__column2 {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.country__infos__info__title__overview {
+    flex-wrap: wrap;
+}
+
+.country__border__overview,
+.country__border__links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.country__border__links__link {
+    background-color: var(--Background--Color--Body);
+    box-shadow: var(--Shadow);
+    padding: 0em 1.5rem;
+    height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s ease;
+    border-radius: .2rem;
+    border: 1px solid hsla(0, 0%, 0%, 0.055);
+}
+
+.country__border__links__link:active {
+    transform: scale(0.92);
+}
+
+/* overviewCountryResponsive */
+@media (max-width: 1094px) {
+    .country__overview {
+        margin: 0;
+        flex-direction: column;
+        max-width: 760px;
+        align-items: center;
+    }
+
+    .country__flag__btn__overview {
+        width: 100%;
+    }
+
+    .country__btn__nav__overview {
+        margin: 2em 0em 4em;
+    }
+
+    .country__flag__overview {
+        width: 100%;
+        height: unset;
+        object-fit: contain;
+    }
+
+    .country__details__overview {
+        width: 100%;
+    }
+
+    .country__infos__overview {
+        flex-wrap: wrap;
+    }
+}
+/*!******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/utils/animations.css ***!
+  \******************************************************************************************/
+.open__filters__animation {
+    animation: openFilters .2s ease forwards;
+    visibility: visible;
+}
+
+.close__filters__animation {
+    animation: closeFilters .2s ease forwards;
+}
+
+@keyframes openFilters {
+    0% {
+        transform: translateY(-80px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes closeFilters {
+    0% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-80px);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.rotate__arrow {
+    animation: arrowRotate .2s ease forwards;
+}
+
+.original__arrow {
+    animation: arrowOriginalPosition .2s ease forwards;
+}
+
+
+@keyframes arrowRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes arrowOriginalPosition {
+    0% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+/*!*************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/state/state.css ***!
+  \*************************************************************************************/
+/* In JS START */
+#country__overview.enable__overview {
+    display: flex;
+}
+
+.nav__filter.hidden,
+#countries.hidden,
+.hidden {
+    display: none;
+}
+
+#country__overview.visible,
+.moon--dark-mode.visible,
+.filter--arrow--dark-mode.visible,
+.visible {
+    display: flex;
+}
+
+#filter--btn.active__filter,
+.nav__filter__filters__continent.active__filter,
+.active__filter {
+    font-weight: 900;
+}
+
+/* In JS END */
+
+.moon--dark-mode,
+.filter--arrow--dark-mode {
+    display: none;
+}
+/*!*****************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/pages/index.css (1) ***!
+  \*****************************************************************************************/
+* {
+    font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    background-color: var(--Background--Color--Body);
+    font-size: var(--Font16px);
+    transition: .5s ease;
+}
+
+
+.attribution {
+    text-align: center;
+    margin-top: 4em;
+    font-size: var(--Font14px);
+    padding: .5rem;
+    color: var(--Color--Text--Bold);
+    font-weight: 600;
+}
+
+.attribution a {
+    font-weight: 900;
+    color: var(--Color--Text--Bold);
+}
+
+#message {
+    font-weight: 600;
+    font-size: var(--Font20px);
+    color: var(--Color--Text--Bold);
+}

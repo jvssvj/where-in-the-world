@@ -1,9 +1,9 @@
 export function renderCountries(
-    flag = 'Not found',
-    name = 'Not found',
-    population = 'Not found',
-    region = 'Not found',
-    capital = 'Not found') {
+    flag: string,
+    name: string,
+    population: string,
+    region: string,
+    capital: string) {
     const countrieLink = document.createElement('a')
     const countrieContainer = document.createElement('div')
     const countrieFlag = document.createElement('img')
@@ -16,21 +16,21 @@ export function renderCountries(
     const countrieCapitalInfoTitle = document.createElement('span')
     const countrieCapitalInfoData = document.createElement('span')
 
-    countrieLink.classList.add('countrie__link')
-    countrieContainer.classList.add('countrie')
+    countrieLink.classList.add('country__link')
+    countrieContainer.classList.add('country')
     countrieContainer.dataset.name = `${name}`
-    countrieFlag.classList.add('countrie__flag')
-    countrieName.classList.add('countrie__name')
-    countrieInfosContainer.classList.add('countrie__infos')
+    countrieFlag.classList.add('country__flag')
+    countrieName.classList.add('country__name')
+    countrieInfosContainer.classList.add('country__infos')
     const infoTitle = [countriePopulationInfoTitle, countrieRegionInfoTitle, countrieCapitalInfoTitle]
     const infoData = [countriePopulationInfoData, countrieRegionInfoData, countrieCapitalInfoData]
 
     infoTitle.forEach((title) => {
-        title.classList.add('countrie__infos__info__title')
+        title.classList.add('country__infos__info__title')
     })
 
     infoData.forEach((data) => {
-        data.classList.add('countrie__infos__info__data')
+        data.classList.add('country__infos__info__data')
     })
 
     countrieFlag.src = `${flag}`

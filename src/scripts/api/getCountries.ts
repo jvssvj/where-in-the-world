@@ -1,4 +1,4 @@
-import { setAllCountries } from "../state/globalData.js"
+import { setAllCountries } from "../state/globalData"
 
 export async function getCountries(endpoint = 'all') {
     const hasFields = endpoint === 'all'

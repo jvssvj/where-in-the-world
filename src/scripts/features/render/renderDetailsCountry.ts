@@ -81,27 +81,27 @@ export function renderDetailsCountry(
     const countrieBorderLinksContainerOverview = document.createElement('div')
 
 
-    countrieContainer.classList.add('countrie__overview')
-    countrieFlagContainer.classList.add('countrie__flag__btn__overview')
-    countrieButtonsNavContainer.classList.add('countrie__btn__nav__overview')
+    countrieContainer.classList.add('country__overview')
+    countrieFlagContainer.classList.add('country__flag__btn__overview')
+    countrieButtonsNavContainer.classList.add('country__btn__nav__overview')
     buttonBack.classList.add('button__back__overview')
     buttonNext.classList.add('button__next__overview')
-    countrieFlag.classList.add('countrie__flag__overview')
-    countrieDetails.classList.add('countrie__details__overview')
-    countrieName.classList.add('countrie__name__overview')
-    countrieInfosContainer.classList.add('countrie__infos__overview')
-    countrieInfosColumn1.classList.add('countrie__infos__overview__column1')
-    countrieInfosColumn2.classList.add('countrie__infos__overview__column2')
+    countrieFlag.classList.add('country__flag__overview')
+    countrieDetails.classList.add('country__details__overview')
+    countrieName.classList.add('country__name__overview')
+    countrieInfosContainer.classList.add('country__infos__overview')
+    countrieInfosColumn1.classList.add('country__infos__overview__column1')
+    countrieInfosColumn2.classList.add('country__infos__overview__column2')
     infoTitle.forEach((title) => {
-        title.classList.add('countrie__infos__info__title__overview')
+        title.classList.add('country__infos__info__title__overview')
     })
     infoData.forEach((data) => {
-        data.classList.add('countrie__infos__info__data__overview')
+        data.classList.add('country__infos__info__data__overview')
     })
 
-    countrieBorderContainerOverview.classList.add('countrie__border__overview')
-    countrieBorderTitleOverview.classList.add('countrie__border__title__overview')
-    countrieBorderLinksContainerOverview.classList.add('countrie__border__links')
+    countrieBorderContainerOverview.classList.add('country__border__overview')
+    countrieBorderTitleOverview.classList.add('country__border__title__overview')
+    countrieBorderLinksContainerOverview.classList.add('country__border__links')
 
     if (!borders || borders.length === 0) {
         countrieBorderTitleOverview.textContent = 'Border Countries: None'
@@ -114,7 +114,7 @@ export function renderDetailsCountry(
 
         for (let i = 0; i < borders.length; i++) {
             const border = document.createElement('a')
-            border.classList.add('countrie__border__links__link')
+            border.classList.add('country__border__links__link')
             border.textContent = borders[i]
             border.dataset.name = borders[i]
             countrieBorderLinksContainerOverview.append(border)
@@ -177,7 +177,7 @@ export function renderDetailsCountry(
 
     countrieContainer.append(countrieFlagContainer, countrieDetails)
 
-    const $container = document.querySelector('#overview__countrie')
+    const $container = document.querySelector('#country__overview')
     $container.innerHTML = ''
     $container.append(countrieContainer)
 }

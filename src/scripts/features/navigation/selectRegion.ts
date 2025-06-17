@@ -1,11 +1,11 @@
-import { CountryInterface } from "../../interfaces/countryInterface.js"
-import { getAllCountries } from "../../state/globalData.js"
-import { renderCountries } from "../render/renderCountries.js"
-import { countryClicked } from "./currentCountry.js"
+import { CountryInterface } from "../../interfaces/countryInterface"
+import { getAllCountries } from "../../state/globalData"
+import { renderCountries } from "../render/renderCountries"
+import { countryClicked } from "./currentCountry"
 
 export function selectRegion() {
-    const $filterModal = document.querySelector('.countries__nav__filter__filters') as HTMLDivElement
-    const $regions = document.querySelectorAll<HTMLSpanElement>('.countries__nav__filter__filters__continent')
+    const $filterModal = document.querySelector('.nav__filter__filters') as HTMLDivElement
+    const $regions = document.querySelectorAll<HTMLSpanElement>('.nav__filter__filters__continent')
     const $countriesContainer = document.querySelector('#countries') as HTMLElement
     const $message = document.querySelector('#message') as HTMLSpanElement
     const $searchField = document.querySelector('#search--countries') as HTMLInputElement

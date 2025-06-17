@@ -1,7 +1,7 @@
-import { getCountries } from "../../api/getCountries.js"
-import { CountryInterface } from "../../interfaces/countryInterface.js"
-import { countryClicked } from "../navigation/currentCountry.js"
-import { renderCountries } from "./renderCountries.js"
+import { getCountries } from "../../api/getCountries"
+import { CountryInterface } from "../../interfaces/countryInterface"
+import { countryClicked } from "../navigation/currentCountry"
+import { renderCountries } from "./renderCountries"
 
 export async function showCountries() {
     const data = await getCountries()

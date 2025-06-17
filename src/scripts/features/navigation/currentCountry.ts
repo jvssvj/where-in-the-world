@@ -1,17 +1,17 @@
-import { hideOverview } from "../interactions/hideOverview.js"
-import { countryClickedRender } from "../render/countryClickedRender.js"
+import { hideOverview } from "../interactions/hideOverview"
+import { countryClickedRender } from "../render/countryClickedRender"
 let countriesClicked: string[] = []
 let currentIndex = -1
 
 export function countryClicked() {
-    const countrieLinks = document.querySelectorAll<HTMLAnchorElement>('.countrie__link')
+    const countrieLinks = document.querySelectorAll<HTMLAnchorElement>('.country__link')
 
     countrieLinks.forEach((link) => {
         link.addEventListener('click', async (ev: MouseEvent) => {
             ev.preventDefault()
 
-            const $countrieDiv = link.closest('.countrie') as HTMLElement | null
-            const countryName = $countrieDiv?.dataset.name
+            const $countryDiv = link.closest('.country') as HTMLElement | null
+            const countryName = $countryDiv?.dataset.name
 
             if (!countryName) return
 
@@ -26,7 +26,7 @@ export function countryClicked() {
 
 
 function getBorderCountryClicked() {
-    const clickedLink = document.querySelectorAll('.countrie__border__links__link')
+    const clickedLink = document.querySelectorAll('.country__border__links__link')
     clickedLink.forEach(link => {
         link.addEventListener('click', (ev) => {
             ev.preventDefault()
