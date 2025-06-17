@@ -4,7 +4,7 @@ export function renderCountries(
     population: string,
     region: string,
     capital: string) {
-    const countrieLink = document.createElement('a')
+    const countrieLink = document.createElement('div')
     const countrieContainer = document.createElement('div')
     const countrieFlag = document.createElement('img')
     const countrieName = document.createElement('h2')
@@ -17,6 +17,9 @@ export function renderCountries(
     const countrieCapitalInfoData = document.createElement('span')
 
     countrieLink.classList.add('country__link')
+    countrieLink.setAttribute('role', 'button')
+    countrieLink.setAttribute('tabindex', '0')
+    countrieLink.setAttribute('aria-label', `About the country ${name}`)
     countrieContainer.classList.add('country')
     countrieContainer.dataset.name = `${name}`
     countrieFlag.classList.add('country__flag')
