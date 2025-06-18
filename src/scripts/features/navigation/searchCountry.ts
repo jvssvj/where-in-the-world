@@ -2,6 +2,7 @@ import { getCountries } from "../../api/getCountries"
 import { CountryInterface } from "../../interfaces/countryInterface"
 import { getAllCountries } from "../../state/globalData"
 import { renderCountries } from "../render/renderCountries"
+import { showCountries } from "../render/showCountries"
 import { countryClicked } from "./currentCountry"
 
 export function searchCountry() {
@@ -13,9 +14,13 @@ export function searchCountry() {
 
         if ($searchField.value !== '') {
             performCountrySearch()
-        } else {
-            getFilterActive()
         }
+
+        if ($searchField.value === '') {
+            showCountries()
+        }
+
+        getFilterActive()
     })
 }
 
