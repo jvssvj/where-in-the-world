@@ -52,5 +52,6 @@ export function renderCountries(
     countrieInfosContainer.append(countrieName, ...infoTitle)
     countrieContainer.append(countrieLink, countrieFlag, countrieInfosContainer)
 
-    document.querySelector('#countries').append(countrieContainer)
+    const countriesContainer = document.querySelector('#countries') as HTMLElement
+    countriesContainer.append(countrieContainer)
 }

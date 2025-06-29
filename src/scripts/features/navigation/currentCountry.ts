@@ -1,5 +1,5 @@
 import { hideOverview } from "../interactions/hideOverview"
-import { countryClickedRender } from "../render/countryClickedRender"
+import { renderCountryClicked } from "../render/renderCountryClicked"
 let countriesClicked: string[] = []
 let currentIndex = -1
 
@@ -19,22 +19,23 @@ export function countryClicked() {
                 countriesClicked.push(countryName)
             }
 
-            countryClickedRender(countryName)
+            renderCountryClicked(countryName)
         })
     })
 }
 
-
 function getBorderCountryClicked() {
-    const clickedLink = document.querySelectorAll('.country__border__links__link')
-    clickedLink.forEach(link => {
-        link.addEventListener('click', (ev) => {
+    const clickedLink = document.querySelectorAll<HTMLLinkElement>('.country__border__links__link')
+
+    clickedLink.forEach((link: HTMLLinkElement) => {
+        link.addEventListener('click', (ev: MouseEvent) => {
             ev.preventDefault()
-            const countryName = link.textContent.trim()
+            const countryName = link.textContent?.trim() || ''
+
             countriesClicked.push(countryName)
             currentIndex = countriesClicked.length - 1
 
-            countryClickedRender(countryName)
+            renderCountryClicked(countryName)
             updateNextButtonVisibility()
         })
     })
@@ -48,7 +49,7 @@ function backCountry() {
         if (currentIndex > 0) {
             currentIndex--
             const countryName = countriesClicked[currentIndex]
-            countryClickedRender(countryName)
+            renderCountryClicked(countryName)
             updateNextButtonVisibility()
         } else {
             countriesClicked = []
@@ -64,7 +65,7 @@ function nextCountry() {
         if (currentIndex < countriesClicked.length - 1) {
             currentIndex++
             const nextCountry = countriesClicked[currentIndex]
-            countryClickedRender(nextCountry)
+            renderCountryClicked(nextCountry)
         }
     })
 

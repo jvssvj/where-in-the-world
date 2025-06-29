@@ -19,6 +19,7 @@ body {
 
 @import url('../components/header.css');
 @import url('../components/nav.css');
+@import url('../components/spinner.css');
 @import url('../components/country.css');
 
 @import url('./overviewCountry.css');

@@ -1,35 +1,80 @@
-import { getCountries } from "../../api/getCountries"
 import { CountryInterface } from "../../interfaces/countryInterface"
 import { getAllCountries } from "../../state/globalData"
 import { renderCountries } from "../render/renderCountries"
-import { showCountries } from "../render/showCountries"
+import { renderSpecificCountries } from "../render/renderSpecificCountries"
 import { countryClicked } from "./currentCountry"
 
-export function searchCountry() {
+function getFilterActive(): string {
+    const $regions = Array.from(document.querySelectorAll<HTMLSpanElement>('.nav__filter__filters__continent'))
+
+    const activeRegion = $regions.find(region => region.classList.contains('active__filter'))
+    const filterName = activeRegion ? activeRegion.dataset.region : ''
+
+    return filterName || ''
+}
+
+export function searchCountry(): void {
     const $searchField = document.querySelector('#search--countries') as HTMLInputElement
     const $countriesContainer = document.querySelector('#countries') as HTMLElement
 
     $searchField.addEventListener('input', async () => {
-        $countriesContainer.innerHTML = ''
+        const countrySearched = $searchField.value.trim().toLowerCase()
+        const filter = getFilterActive()
 
-        if ($searchField.value !== '') {
-            performCountrySearch()
-        }
+        setTimeout(() => {
+            if (countrySearched !== '' && filter === '') {
+                $countriesContainer.innerHTML = ''
+                searchByName(countrySearched)
+            }
 
-        if ($searchField.value === '') {
-            showCountries()
-        }
+            if (countrySearched === '' && filter !== '') {
+                $countriesContainer.innerHTML = ''
+                searchByFilter(filter)
+            }
 
-        getFilterActive()
+            if (countrySearched !== '' && filter !== '') {
+                $countriesContainer.innerHTML = ''
+                searchByNameAndFilter(countrySearched, filter)
+            }
+
+            if (countrySearched === '' && filter === '') {
+                $countriesContainer.innerHTML = ''
+                renderSpecificCountries()
+            }
+
+            countryClicked()
+
+        }, 500)
     })
 }
 
-export async function performCountrySearch() {
-    const $searchField = document.querySelector('#search--countries') as HTMLInputElement
-    const $countriesContainer = document.querySelector('#countries') as HTMLElement
-    $countriesContainer.innerHTML = ''
+export function searchByName(countrySearched: string): void {
+    const allCountries = getAllCountries()
+    const data = allCountries.filter(country => country.name.common.toLowerCase().trim().includes(countrySearched))
+    renderCountry(data)
+}
 
-    const data = await getCountries(`name/${$searchField.value}`)
+function searchByFilter(filter: string): void {
+    const allCountries = getAllCountries()
+    const data = allCountries.filter(country => country.region === filter)
+    renderCountry(data)
+}
+
+function searchByNameAndFilter(countrySearched: string, filter: string): void {
+    const allCountries = getAllCountries()
+    const data = allCountries.filter(country => country.name.common.toLowerCase().trim().includes(countrySearched) && (!filter || country.region === filter))
+    renderCountry(data)
+}
+
+function renderCountry(data: CountryInterface[]): void {
+    const $message = document.querySelector('#message') as HTMLSpanElement
+
+    if (data.length === 0) {
+        $message.textContent = 'No results found.'
+        return
+    }
+
+    $message.textContent = ''
 
     data.slice(0, 8).forEach((country: CountryInterface) => {
         const flag = country.flags.svg
@@ -40,65 +85,4 @@ export async function performCountrySearch() {
 
         renderCountries(flag, name, population, region, capital)
     })
-
-    getFilterActive()
-    countryClicked()
-}
-
-function getFilterActive() {
-    const $regions = Array.from(document.querySelectorAll<HTMLSpanElement>('.nav__filter__filters__continent'))
-
-    const activeRegion = $regions.find(region => region.classList.contains('active__filter'))
-    const verify = activeRegion ? activeRegion.dataset.region : ''
-
-    filter(verify)
-}
-
-function filter(filter: string) {
-    const allCountries = getAllCountries()
-    const $searchField = document.querySelector('#search--countries') as HTMLInputElement
-    const $countriesContainer = document.querySelector('#countries') as HTMLElement
-    const $message = document.querySelector('#message') as HTMLSpanElement
-    const value = $searchField.value.toLowerCase().trim()
-
-    if (value !== '' && filter !== '') {
-        const country = allCountries.filter(country =>
-            country.name.common.toLowerCase().includes(value) &&
-            (!filter || country.region === filter)
-        )
-
-        if (country.length === 0) return $message.textContent = 'No results found.'
-
-        $countriesContainer.innerHTML = ''
-        $message.textContent = ''
-
-        country.slice(0, 8).forEach(country => {
-            const flag = country.flags.svg
-            const name = country.name.common
-            const population = country.population.toLocaleString('en-US')
-            const region = country.region
-            const capital = country.capital
-
-            renderCountries(flag, name, population, region, capital)
-        })
-    }
-
-    if (value === '' && filter !== '') {
-        const country = allCountries.filter(country => country.region === filter)
-
-        if (country.length === 0) return $message.textContent = 'No results found.'
-
-        $countriesContainer.innerHTML = ''
-        $message.textContent = ''
-
-        country.slice(0, 8).forEach(country => {
-            const flag = country.flags.svg
-            const name = country.name.common
-            const population = country.population.toLocaleString('en-US')
-            const region = country.region
-            const capital = country.capital
-
-            renderCountries(flag, name, population, region, capital)
-        })
-    }
 }

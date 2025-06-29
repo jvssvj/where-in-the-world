@@ -22,7 +22,7 @@ export function selectRegion() {
             $filterModal.classList.remove('open__filters__animation')
             $filterModal.classList.add('close__filters__animation')
 
-            const nameRegion = region.dataset.region
+            const nameRegion = region.dataset.region || ''
             $buttonFilter.textContent = nameRegion
             $buttonFilter.classList.add('active__filter')
 

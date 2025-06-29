@@ -1,33 +1,33 @@
-[Change to english](README.EN.md)
+[Mudar para português](README.PTBR.md)
 
 # 🌍 Where in the world?
 
-Uma aplicação web interativa que permite visualizar informações de todos os países do mundo, com suporte a tema escuro, navegação entre países vizinhos e busca com filtro por continente.
+An interactive web application that allows you to view information about all countries in the world. It supports dark mode, neighboring country navigation, and a search with continent filtering.
 
-![Preview do projeto](./design/desktop-preview.jpg)
+![Project preview](./design/desktop-preview.jpg)
 
-## 🔗 Acesse o projeto
+## 🔗 Live Demo
 
 👉 [witw-map.vercel.app](https://witw-map.vercel.app/)
 
-## 🧰 Tecnologias utilizadas
+## 🧰 Technologies Used
 
 - **TypeScript**
 - **HTML + CSS**
 - **REST Countries API**
-- **Webpack** (compilação e minificação)
+- **Webpack** (for compilation and minification)
 - **Dark Mode**
-- **Responsividade**
+- **Responsive Design**
 
-## ✨ Funcionalidades
+## ✨ Features
 
-- 🌐 Listagem de países com informações como nome, capital, região, população e bandeira
-- 🔍 Filtro por continente e campo de busca
-- 🌙 Alternância entre tema claro e escuro
-- 📍 Detalhes do país com navegação entre países fronteiriços
-- 📱 Design totalmente responsivo
+- 🌐 Country listing with information like name, capital, region, population, and flag  
+- 🔍 Filter by continent and search field  
+- 🌙 Toggle between light and dark themes  
+- 📍 Country details with navigation through neighboring countries  
+- 📱 Fully responsive layout  
 
-## 📁 Estrutura do projeto
+## 📁 Project Structure
 
 ```
 ├── dist/
@@ -45,33 +45,33 @@ Uma aplicação web interativa que permite visualizar informações de todos os 
 ├── webpack.config.js
 ```
 
-## ⚙️ Como rodar o projeto localmente
+## ⚙️ Running the Project Locally
 
-1. Clone o repositório:
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/jvssvj/where-in-the-world.git
 cd where-in-the-world
 ```
 
-2. Instale as dependências:
+2. Install the dependencies:
 
 ```bash
 npm install
 ```
 
-3. Rode o projeto em modo de desenvolvimento:
+3. Run the project in development mode:
 
 ```bash
 npm run dev
 ```
 
-4. Para gerar os arquivos minificados em `dist/`:
+4. To generate the minified files in dist/:
 
 ```bash
 npm run build
 ```
 
-🤝 Créditos
+🤝 Credits
 - REST Countries API
-- Inspiração no [desafio do Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
+- Inspired by the [desafio do Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)

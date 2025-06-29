@@ -1,12 +1,12 @@
 export function changeTheme() {
-    const $btnChangeModeContainer = document.querySelector('.header__content__switch__theme')
-    const $btnChangeMode = document.querySelector('#dark--mode--btn')
-    const $moonInDarkMode = document.querySelector('.moon--dark-mode')
-    const $moonInLightMode = document.querySelector('.moon--light-mode')
-    const $darkArrow = document.querySelector('.filter--arrow--dark-mode')
-    const $lightArrow = document.querySelector('.filter--arrow--light-mode')
+    const $btnChangeModeContainer = document.querySelector('.header__content__switch__theme') as HTMLDivElement
+    const $btnChangeMode = document.querySelector('#dark--mode--btn') as HTMLButtonElement
+    const $moonInDarkMode = document.querySelector('.moon--dark-mode') as HTMLImageElement
+    const $moonInLightMode = document.querySelector('.moon--light-mode') as HTMLImageElement
+    const $darkArrow = document.querySelector('.filter--arrow--dark-mode') as HTMLImageElement
+    const $lightArrow = document.querySelector('.filter--arrow--light-mode') as HTMLImageElement
     const $searchCountries = document.querySelector('#search--countries') as HTMLInputElement
-    const $body = document.querySelector('body')
+    const $body = document.querySelector('body') as HTMLBodyElement
 
     const savedTheme = localStorage.getItem('theme') || 'light'
 
@@ -18,18 +18,18 @@ export function changeTheme() {
         applyTheme(isDarkMode)
     })
 
-    function applyTheme(isDarkMode) {
+    function applyTheme(isDarkMode: boolean) {
         $body.classList.toggle('dark-mode', isDarkMode)
 
         $moonInLightMode.classList.toggle('visible', !isDarkMode)
         $moonInLightMode.classList.toggle('hidden', isDarkMode)
         $moonInDarkMode.classList.toggle('visible', isDarkMode)
 
-        $btnChangeMode.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode'
-
         if (isDarkMode) {
+            $btnChangeMode.textContent = 'Dark Mode'
             $searchCountries.style.backgroundImage = `url('./images/search-circle.svg')`
         } else {
+            $btnChangeMode.textContent = 'Light Mode'
             $searchCountries.style.backgroundImage = `url('./images/search-circle-outline.svg')`
         }
 

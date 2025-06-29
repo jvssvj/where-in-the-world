@@ -1,5 +1,5 @@
-import { performCountrySearch } from "../navigation/searchCountry"
-import { showCountries } from "../render/showCountries"
+import { searchByName } from "../navigation/searchCountry"
+import { renderSpecificCountries } from "../render/renderSpecificCountries"
 
 export function clearFilters() {
     const $countriesContainer = document.querySelector('#countries') as HTMLElement
@@ -20,9 +20,9 @@ export function clearFilters() {
         $countriesContainer.innerHTML = ''
 
         if ($searchField.value !== '') {
-            performCountrySearch()
+            searchByName($searchField.value)
         } else {
-            showCountries()
+            renderSpecificCountries()
         }
     })
 }
