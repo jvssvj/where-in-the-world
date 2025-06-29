@@ -444,6 +444,35 @@ body.dark-mode {
     --Shadow: rgba(0, 0, 0, 0.200) 0px 5px 15px;
     transition: .5s ease;
 }
+/*!********************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/components/spinner.css ***!
+  \********************************************************************************************/
+.loader__container {
+    position: absolute;
+    z-index: 2;
+    margin-top: 20em;
+}
+
+.loader {
+    width: 200px;
+    height: 200px;
+    border: 8px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
 /*!*********************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/assets/styles/utils/variables.css (3) ***!
   \*********************************************************************************************/
@@ -622,6 +651,7 @@ body.dark-mode {
     }
 
     .country__flag__overview {
+        min-width: unset;
         width: 100%;
         height: unset;
         object-fit: contain;

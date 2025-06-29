@@ -1,7 +1,7 @@
 export function openAndCloseFilters() {
-    const $btnFilter = document.querySelector('.nav__filter__btn')
-    const $btnFilterArrows = document.querySelectorAll('.nav__filter__arrow')
-    const $filterModal = document.querySelector('.nav__filter__filters')
+    const $btnFilter = document.querySelector('.nav__filter__btn') as HTMLButtonElement
+    const $btnFilterArrows = document.querySelectorAll<HTMLImageElement>('.nav__filter__arrow')
+    const $filterModal = document.querySelector('.nav__filter__filters') as HTMLDivElement
 
     $filterModal.classList.add('close__filters__animation')
     $btnFilter.addEventListener('click', () => {
@@ -14,7 +14,6 @@ export function openAndCloseFilters() {
                 arrow.classList.remove('original__arrow')
             }
         })
-
 
         if ($filterModal.classList.contains('close__filters__animation')) {
             $filterModal.classList.remove('close__filters__animation')

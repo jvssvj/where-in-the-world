@@ -16,7 +16,7 @@
     <title>Where in the world?</title>
 
     <!-- FAVICON -->
-    <link rel="icon" type="image/png" href="https://witw-map.vercel.app/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" href="https://witw-map.vercel.app/images/favicon.png" />
 
     <!-- OPEN GRAPH (Facebook, LinkedIn etc) -->
     <meta property="og:type" content="website" />
@@ -63,6 +63,7 @@
         <div class="nav__search">
             <label for="search--countries">Search Countries</label>
             <input type="text" name="search--countries" id="search--countries" placeholder="Search for a country...">
+
         </div>
 
         <div class="nav__filter">
@@ -89,6 +90,10 @@
             </div>
         </div>
     </nav>
+
+    <div class="loader__container">
+        <span class="loader"></span>
+    </div>
 
     <main id="countries"></main>
     <span id="message"></span>
