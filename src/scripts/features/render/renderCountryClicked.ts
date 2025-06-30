@@ -1,6 +1,7 @@
 import { getCountries } from "../../api/getCountries"
 import { getAllCountries } from "../../state/globalData"
-import { showOverview } from "../interactions/showOverview"
+import { initCountryDetailsReveal } from "../animation/animations"
+import { showOverview } from "../interaction/showOverview"
 import { currentCountry } from "../navigation/currentCountry"
 import { renderDetailsCountry } from "./renderDetailsCountry"
 
@@ -38,6 +39,7 @@ export async function renderCountryClicked(countryName: string) {
 
     showOverview()
 
+
     renderDetailsCountry(
         countrieFlag,
         countrieName,
@@ -53,4 +55,5 @@ export async function renderCountryClicked(countryName: string) {
     )
 
     currentCountry()
+    initCountryDetailsReveal()
 }

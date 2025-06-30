@@ -36,11 +36,6 @@
     justify-content: center;
     gap: .7rem;
     cursor: pointer;
-    transition: .2s ease;
-}
-
-.header__content__switch__theme:active {
-    transform: scale(0.92);
 }
 
 .header__content__switch__theme__icon {

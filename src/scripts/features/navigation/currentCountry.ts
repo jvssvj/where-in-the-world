@@ -1,4 +1,4 @@
-import { hideOverview } from "../interactions/hideOverview"
+import { hideOverview } from "../interaction/hideOverview"
 import { renderCountryClicked } from "../render/renderCountryClicked"
 let countriesClicked: string[] = []
 let currentIndex = -1

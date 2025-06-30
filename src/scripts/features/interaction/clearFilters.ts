@@ -3,10 +3,10 @@ import { renderSpecificCountries } from "../render/renderSpecificCountries"
 
 export function clearFilters() {
     const $countriesContainer = document.querySelector('#countries') as HTMLElement
-    const $clearBtn = document.querySelector<HTMLSpanElement>('.clear__filter')
+    const $clearBtn = document.querySelector<HTMLSpanElement>('.clear__filter') as HTMLSpanElement
     const $regions = document.querySelectorAll<HTMLSpanElement>('.nav__filter__filters__continent')
-    const $filterBtn = document.querySelector<HTMLButtonElement>('#filter--btn')
-    const $filterModal = document.querySelector<HTMLDivElement>('.nav__filter__filters')
+    const $filterBtn = document.querySelector<HTMLButtonElement>('#filter--btn') as HTMLButtonElement
+    const $filterModal = document.querySelector<HTMLDivElement>('.nav__filter__filters') as HTMLDivElement
     const $searchField = document.querySelector('#search--countries') as HTMLInputElement
 
     $clearBtn.addEventListener('click', () => {

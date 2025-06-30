@@ -1,5 +1,6 @@
 import { CountryInterface } from "../../interfaces/countryInterface"
 import { getAllCountries } from "../../state/globalData"
+import { initCountriesReveal } from "../animation/animations"
 import { renderCountries } from "../render/renderCountries"
 import { countryClicked } from "./currentCountry"
 
@@ -52,6 +53,7 @@ export function selectRegion() {
             }
 
             countryClicked()
+            initCountriesReveal()
         })
     })
 }

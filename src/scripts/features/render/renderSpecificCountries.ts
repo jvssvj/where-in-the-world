@@ -1,5 +1,6 @@
 import { getCountries } from "../../api/getCountries"
 import { CountryInterface } from "../../interfaces/countryInterface"
+import { initCountriesReveal } from "../animation/animations"
 import { countryClicked } from "../navigation/currentCountry"
 import { renderCountries } from "./renderCountries"
 
@@ -27,4 +28,5 @@ export async function renderSpecificCountries() {
     })
 
     countryClicked()
+    initCountriesReveal()
 }

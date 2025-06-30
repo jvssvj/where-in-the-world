@@ -28,7 +28,8 @@ export async function getCountries(endpoint = 'all') {
         return data
 
     } catch (err) {
-        $message.textContent = err.message
+        const error = err as Error
+        $message.textContent = error.message
     } finally {
         setTimeout(() => {
             spinner.classList.add('hidden')

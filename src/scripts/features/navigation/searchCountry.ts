@@ -1,5 +1,6 @@
 import { CountryInterface } from "../../interfaces/countryInterface"
 import { getAllCountries } from "../../state/globalData"
+import { initCountriesReveal } from "../animation/animations"
 import { renderCountries } from "../render/renderCountries"
 import { renderSpecificCountries } from "../render/renderSpecificCountries"
 import { countryClicked } from "./currentCountry"
@@ -43,7 +44,6 @@ export function searchCountry(): void {
             }
 
             countryClicked()
-
         }, 500)
     })
 }
@@ -85,4 +85,6 @@ function renderCountry(data: CountryInterface[]): void {
 
         renderCountries(flag, name, population, region, capital)
     })
+
+    initCountriesReveal()
 }
