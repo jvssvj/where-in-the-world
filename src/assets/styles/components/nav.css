@@ -9,6 +9,7 @@
     padding: 0em 5rem;
     margin: 3rem 0rem;
     gap: 4.6875rem;
+    z-index: 2;
 }
 
 .nav__search {

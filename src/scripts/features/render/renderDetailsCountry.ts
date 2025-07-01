@@ -82,12 +82,12 @@ export function renderDetailsCountry(
 
 
     countrieContainer.classList.add('country__overview')
-    countrieFlagContainer.classList.add('country__flag__btn__overview')
+    countrieFlagContainer.classList.add('country__flag__btn__overview', 'reveal-flag-overview')
     countrieButtonsNavContainer.classList.add('country__btn__nav__overview')
     buttonBack.classList.add('button__back__overview')
     buttonNext.classList.add('button__next__overview')
     countrieFlag.classList.add('country__flag__overview')
-    countrieDetails.classList.add('country__details__overview')
+    countrieDetails.classList.add('country__details__overview', 'reveal-details-overview')
     countrieName.classList.add('country__name__overview')
     countrieInfosContainer.classList.add('country__infos__overview')
     countrieInfosColumn1.classList.add('country__infos__overview__column1')

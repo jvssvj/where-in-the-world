@@ -14,38 +14,30 @@ function getFilterActive(): string {
     return filterName || ''
 }
 
+function debounce(fn: Function, delay = 300) {
+    let timeoutId: number
+    return (...args: any[]) => {
+        clearTimeout(timeoutId)
+        timeoutId = window.setTimeout(() => fn(...args), delay)
+    }
+}
+
 export function searchCountry(): void {
     const $searchField = document.querySelector('#search--countries') as HTMLInputElement
     const $countriesContainer = document.querySelector('#countries') as HTMLElement
-
-    $searchField.addEventListener('input', async () => {
+    $searchField.addEventListener('input', debounce(() => {
         const countrySearched = $searchField.value.trim().toLowerCase()
         const filter = getFilterActive()
 
-        setTimeout(() => {
-            if (countrySearched !== '' && filter === '') {
-                $countriesContainer.innerHTML = ''
-                searchByName(countrySearched)
-            }
+        $countriesContainer.innerHTML = ''
 
-            if (countrySearched === '' && filter !== '') {
-                $countriesContainer.innerHTML = ''
-                searchByFilter(filter)
-            }
+        if (countrySearched && !filter) searchByName(countrySearched)
+        else if (!countrySearched && filter) searchByFilter(filter)
+        else if (countrySearched && filter) searchByNameAndFilter(countrySearched, filter)
+        else renderSpecificCountries()
 
-            if (countrySearched !== '' && filter !== '') {
-                $countriesContainer.innerHTML = ''
-                searchByNameAndFilter(countrySearched, filter)
-            }
-
-            if (countrySearched === '' && filter === '') {
-                $countriesContainer.innerHTML = ''
-                renderSpecificCountries()
-            }
-
-            countryClicked()
-        }, 500)
-    })
+        countryClicked()
+    }, 600))
 }
 
 export function searchByName(countrySearched: string): void {
