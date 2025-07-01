@@ -20,7 +20,7 @@ export function renderCountries(
     countrieLink.setAttribute('role', 'button')
     countrieLink.setAttribute('tabindex', '0')
     countrieLink.setAttribute('aria-label', `About the country ${name}`)
-    countrieContainer.classList.add('country')
+    countrieContainer.classList.add('country', 'reveal-country')
     countrieContainer.dataset.name = `${name}`
     countrieFlag.classList.add('country__flag')
     countrieName.classList.add('country__name')

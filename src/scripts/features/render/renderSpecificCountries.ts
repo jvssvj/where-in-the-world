@@ -28,5 +28,6 @@ export async function renderSpecificCountries() {
     })
 
     countryClicked()
+
     initCountriesReveal()
 }

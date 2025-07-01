@@ -1,58 +1,53 @@
-import ScrollReveal from 'scrollreveal';
-const sr = ScrollReveal()
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 export function initUIReveal() {
-    sr.reveal('.header__content__t', {
-        origin: 'left',
-        distance: '50px',
-        duration: 700,
-        easing: 'ease-in-out',
-    });
+    gsap.from(".header__content__t", {
+        x: -100,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+    })
 
-    sr.reveal('.header__content__switch__theme', {
-        origin: 'right',
-        distance: '50px',
-        duration: 700,
-        easing: 'ease-in-out',
-    });
+    gsap.from(".header__content__switch__theme", {
+        x: 100,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+    })
 
-    sr.reveal('#countries', {
-        origin: 'top',
-        distance: '70px',
-        duration: 700,
-        easing: 'ease-in-out',
-        delay: 700
-    });
+    gsap.from(".nav", {
+        y: -100,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+    })
 }
 
 export function initCountriesReveal() {
-    const cards = document.querySelectorAll('.country');
-    cards.forEach((el) => {
-        el.removeAttribute('data-sr-id');
-        el.classList.remove('sr');
-    });
-
-    sr.reveal('.country', {
-        origin: 'left',
-        distance: '70px',
-        duration: 700,
-        easing: 'ease-in-out',
-        reset: true
-    });
+    gsap.from("#countries", {
+        x: -50,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.2,
+        ease: "power2.out"
+    })
 }
 
 export function initCountryDetailsReveal() {
-    sr.reveal('.country__flag__btn__overview', {
-        origin: 'left',
-        distance: '70px',
-        duration: 700,
-        easing: 'ease-in-out',
-    });
+    gsap.from(".reveal-flag-overview", {
+        x: -50,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.2,
+        ease: "power2.out"
+    })
 
-    sr.reveal('.country__details__overview', {
-        origin: 'right',
-        distance: '70px',
-        duration: 700,
-        easing: 'ease-in-out',
-    });
+    gsap.from(".reveal-details-overview", {
+        x: 50,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.2,
+        ease: "power2.out"
+    })
 }
